@@ -36,8 +36,11 @@ sub _make_alias {
       ? $alias
       : "$callpack\::$alias";
 
+    # need a scalar not referenced elsewhere to make the sub inlinable
+    my $pack2 = $package;
+
     no strict 'refs';
-    *{ $destination } = sub () { $package };
+    *{ $destination } = sub () { $pack2 };
 }
 
 sub _load_alias {
