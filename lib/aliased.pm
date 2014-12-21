@@ -112,7 +112,7 @@ aliased - Use shorter versions of class names.
   my $cust      = $Customer->new;
 
   my $Preferred = alias "My::Other::Namespace::Preferred::Customer";
-  my $pref      = $Preferred->new;  
+  my $pref      = $Preferred->new;
 
 
 =head1 DESCRIPTION
@@ -201,7 +201,7 @@ by the import list:
 Snippet 1:
 
   use Some::Module::Name qw/foo bar/;
-  my $o = Some::Module::Name->some_class_method; 
+  my $o = Some::Module::Name->some_class_method;
 
 Snippet 2 (equivalent to snippet 1):
 
@@ -281,7 +281,7 @@ handle the aliasing via typeglobs.  Thus, instead of a subroutine that
 provides the class name, we alias one package to another (as the
 L<namespace|namespace> module does.)  However, we really don't want to simply
 alias one package to another and wipe out namespaces willy-nilly.  By merely
-exporting a single subroutine to a namespace, we minimize the issue. 
+exporting a single subroutine to a namespace, we minimize the issue.
 
 Fortunately, this doesn't seem to be that much of a problem.  Non-OO modules
 generally support exporting of the functions you need and this eliminates the
