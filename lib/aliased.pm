@@ -276,6 +276,8 @@ following syntax:
   use aliased 'Some::Really::Long::Module::Name';
   my $data = Name::data();
 
+=for stopwords nilly
+
 That causes a serious problem.  The only (reasonable) way it can be done is to
 handle the aliasing via typeglobs.  Thus, instead of a subroutine that
 provides the class name, we alias one package to another (as the
@@ -300,6 +302,8 @@ There are no known bugs in this module, but feel free to email me reports.
 The L<namespace> module.
 
 =head1 THANKS
+
+=for stopwords Rentrak
 
 Many thanks to Rentrak, Inc. (http://www.rentrak.com/) for graciously allowing
 me to replicate the functionality of some of their internal code.
