@@ -1,8 +1,5 @@
 package aliased;
 
-our $VERSION = '0.32';
-$VERSION = eval $VERSION;
-
 require Exporter;
 @EXPORT = qw(alias prefix);
 
@@ -98,10 +95,6 @@ __END__
 =head1 NAME
 
 aliased - Use shorter versions of class names.
-
-=head1 VERSION
-
-0.31
 
 =head1 SYNOPSIS
 
