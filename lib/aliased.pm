@@ -1,4 +1,5 @@
 package aliased;
+# ABSTRACT: Use shorter versions of class names.
 
 require Exporter;
 @EXPORT = qw(alias prefix);
@@ -95,9 +96,7 @@ sub prefix {
 1;
 __END__
 
-=head1 NAME
-
-aliased - Use shorter versions of class names.
+=pod
 
 =head1 SYNOPSIS
 
@@ -296,10 +295,6 @@ need for a module such as this.
 
 This modules exports a subroutine with the same name as the "aliased" name.
 
-=head1 BUGS
-
-There are no known bugs in this module, but feel free to email me reports.
-
 =head1 SEE ALSO
 
 The L<namespace> module.
@@ -310,17 +305,5 @@ The L<namespace> module.
 
 Many thanks to Rentrak, Inc. (http://www.rentrak.com/) for graciously allowing
 me to replicate the functionality of some of their internal code.
-
-=head1 AUTHOR
-
-Curtis Poe, C<< ovid [at] cpan [dot] org >>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright (C) 2005 by Curtis "Ovid" Poe
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.5 or,
-at your option, any later version of Perl 5 you may have available.
 
 =cut
