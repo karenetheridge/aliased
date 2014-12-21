@@ -2,7 +2,8 @@
 use warnings;
 use strict;
 
-use Test::More tests => 18;
+use Test::More;
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 
 BEGIN {
     chdir 't' if -d 't';
@@ -56,3 +57,5 @@ foreach my $method (qw/foo bar baz/) {
   $name = A::Name->new;
   isa_ok $name, 'Really::Long::Module::Name', '... a long alias works in a package';
 }
+
+done_testing;

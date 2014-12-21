@@ -14,7 +14,7 @@ BEGIN {
 use aliased "Test::More";
 use aliased "HasSigDie";
 
-plan(tests => 9);
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 
 is ref $SIG{__DIE__}, "CODE",
   '$SIG{__DIE__} handlers should not be destroyed';
@@ -50,3 +50,5 @@ is $SIG{__DIE__}->(), 'whee!',
     is $SIG{__DIE__}->(), 'whee!',
       '... and should behave as expected';
 }
+
+done_testing;

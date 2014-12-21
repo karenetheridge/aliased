@@ -2,8 +2,8 @@
 use warnings;
 use strict;
 
-use Test::More tests => 5;
-#use Test::More qw/no_plan/;
+use Test::More;
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 
 BEGIN {
     chdir 't' if -d 't';
@@ -23,3 +23,5 @@ is $alias->thing(2), 4, '... and it should return the correct results';
     ::is_deeply [ echo("foo") ], ["foo"],
       '... and it should still allow importing';
 }
+
+done_testing;

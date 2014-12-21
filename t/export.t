@@ -3,6 +3,8 @@ use warnings;
 use strict;
 
 use Test::More;
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
+
 use B;
 use lib "t/lib";
 

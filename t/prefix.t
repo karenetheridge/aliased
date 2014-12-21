@@ -2,7 +2,9 @@
 use warnings;
 use strict;
 
-use Test::More tests => 6;
+use Test::More;
+use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
+
 use aliased;
 
 ok defined &prefix, 'prefix() should be in our namespace if we ask for it';
@@ -24,3 +26,5 @@ is ref $foo, 'CODE', '... returning a code ref';
 is $foo->()->checkit, 'foo checkit', '... and called directly, returns the correct class';
 is $foo->('Bar')->checkit, 'foobar checkit',
     '... and if called with a subpackage name, should also return the correct class';
+
+done_testing;
