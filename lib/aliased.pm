@@ -5,6 +5,7 @@ require Exporter;
 @EXPORT = qw(alias prefix);
 
 use strict;
+use warnings;
 
 sub _croak {
     require Carp;
