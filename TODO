@@ -1,0 +1,24 @@
+
+
+12:17  * ether ponders adding a new warning (with its own warning category) to aliased.pm regarding the use of aliases in other namespaces
+12:18 < ether> e.g.  use aliased 'Foo::Bar::Baz' => 'Bar::Baz'  # we just created a new Bar package with 'Baz' as a member; maybe not what the user intended
+12:18 < ether> there is a warning in docs about it, but who reads docs
+12:18 < frew> I wonder how often people do that on purpose
+12:19 < frew> if it weren't too late I'd make it die
+12:19 < ether> I'm hitting cases in $work code where people are copying such aliases, but if you create the same alias in more than one place, kaboom
+12:19 < ether> keeping it local means keeping it safe
+12:19 < frew> huh
+12:19 < ether> well it works fine if you only load one package or the other :)
+12:19 < frew> I wonder if it could be made smart to know if it was already exported to that other spot?
+12:20 < mst> right, ideally if you do something like that you'd localize it, and then use an end of scope hook to rip it back out
+12:20 < ether> well, this is worthy of a -TRIAL release if it's worth doing at all...
+12:20  * ether threw it out here so mst can call me an idiot if warranted
+12:21 < mst> ether: the current behaviour is obviously dim but would probably break downstream code if we fixed it :/
+12:22 < frew> mst: we could at least check and not explode if we'd already exported form another package, right?
+12:22 < frew> and then die if it existed but it's not the same thing
+12:22 < mst> of course, the 'standard' approach is to do Bar_Baz as your aliased name
+12:22 < mst> so perhaps a warning that you should've done that instead
+12:24 < haarg> someone was suggesting doing a caller check to handle this yesterday, which is insane
+12:24 < mst> yeah, fuck that
+12:24 < haarg> but checking for overwriting seems sane
+
