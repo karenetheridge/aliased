@@ -1,11 +1,10 @@
+use strict;
+use warnings;
 package aliased;
 # ABSTRACT: Use shorter versions of class names.
 
 require Exporter;
-@EXPORT = qw(alias prefix);
-
-use strict;
-use warnings;
+our @EXPORT = qw(alias prefix);
 
 sub _croak {
     require Carp;
