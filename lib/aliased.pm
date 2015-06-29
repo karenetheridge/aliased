@@ -3,6 +3,8 @@ use warnings;
 package aliased;
 # ABSTRACT: Use shorter versions of class names.
 
+our $VERSION = '0.35';
+
 require Exporter;
 our @EXPORT = qw(alias prefix);
 
