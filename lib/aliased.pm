@@ -196,6 +196,14 @@ use the new module by only changing one line of code.
   use aliased "New::Module::Name" => "Old::Module::Name";
   my $thing = Old::Module::Name->new;
 
+If you in two different packages alias like in the above example and use the
+same name for aliasing to, you will get a warning similar to the following:
+
+  Constant subroutine Old::Module::Name redefined at .../aliased.pm
+
+This is due to namespaced aliases being global, and are one of the reasons why
+you should try to avoid that kind of aliasing.
+
 =head2 Import Lists
 
 Sometimes, even with an OO module, you need to specify extra arguments when
